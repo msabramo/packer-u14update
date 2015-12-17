@@ -1,0 +1,18 @@
+{
+  "builders": [
+    {
+      "type": "openstack",
+      "image_name": "u14_new",
+      "source_image": "c9e58bf6-f4d7-40ab-8304-0b76f7ed544c",
+      "flavor": "dev.default",
+      "communicator": "ssh",
+      "ssh_username": "monkey"
+    }
+  ],
+  "provisioners": [
+    {
+      "type": "shell",
+      "inline": "sudo apt-get update && sudo DEBIAN_FRONTEND=noninteractive apt-get --force-yes -y -o Dpkg::Options::='--force-confdef' -o Dpkg::Options::='--force-confold' dist-upgrade"
+    }
+  ]
+}
