@@ -1,12 +1,18 @@
 {
+  "variables": {
+    "image_name": "u14_new",
+    "source_image": "c9e58bf6-f4d7-40ab-8304-0b76f7ed544c",
+    "flavor": "dev.default",
+    "ssh_username": "monkey"
+  },
   "builders": [
     {
       "type": "openstack",
-      "image_name": "u14_new",
-      "source_image": "c9e58bf6-f4d7-40ab-8304-0b76f7ed544c",
-      "flavor": "dev.default",
+      "image_name": "{{user `image_name`}}",
+      "source_image": "{{user `source_image`}}",
+      "flavor": "{{user `flavor`}}",
       "communicator": "ssh",
-      "ssh_username": "monkey"
+      "ssh_username": "{{user `ssh_username`}}"
     }
   ],
   "provisioners": [
