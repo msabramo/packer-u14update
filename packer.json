@@ -18,11 +18,13 @@
   "provisioners": [
     {
       "type": "shell",
+      "environment_vars": ["DEBIAN_FRONTEND=noninteractive"],
       "inline": [
+        "set -x",
         "sudo apt-get update",
-        "sudo DEBIAN_FRONTEND=noninteractive apt-get --force-yes -y -o Dpkg::Options::='--force-confdef' -o Dpkg::Options::='--force-confold' dist-upgrade",
+        "sudo apt-get --force-yes -y -o Dpkg::Options::='--force-confdef' -o Dpkg::Options::='--force-confold' dist-upgrade",
         "sudo sync",
-        "sudo shutdown -h now"
+        "sudo poweroff"
       ]
     }
   ]
