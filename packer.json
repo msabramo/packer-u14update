@@ -22,7 +22,9 @@
       "inline": [
         "set -x",
         "sudo apt-get update",
-        "sudo apt-get --force-yes -y -o Dpkg::Options::='--force-confdef' -o Dpkg::Options::='--force-confold' dist-upgrade"
+        "sudo apt-get --force-yes -y -o Dpkg::Options::='--force-confdef' -o Dpkg::Options::='--force-confold' dist-upgrade",
+        "sudo sync",
+        "sleep 60"
       ]
     }
   ]
